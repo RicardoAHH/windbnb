@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,46 @@
     <script src="./src/scripts/main.js" defer></script>
     <title>PF Windbnd Vanilla</title>
 </head>
+
 <body>
-    <h1 class="bg-slate-800 text-white text-2xl">Hola mundo!</h1>
+    <header>
+        <div class="w-screen h-[50px] flex items-center pb-2 pl-6"> <img src="./src/images/icons/logo-f7862584.svg"
+                alt="Logo">
+        </div>
+        <div class="flex items-center justify-center">
+            <input type="text" placeholder="Add location"
+                class="border-2 border-gray-300 rounded-l-lg w-[35%] h-[40px] pl-5">
+            <input type="number" placeholder="Add guests" class="border-y-2  border-gray-300 w-[35%] h-[40px] pl-5">
+            <button class="border-2 border-gray-300 rounded-r-lg w-[10%] h-[40px] flex items-center justify-center"
+                type="button"><img src="./src/images/icons/search.svg" alt="search" width="20"></button>
+        </div>
+    </header>
+    <main class="flex flex-col items-center justify-center w-screen">
+        <div class="flex items-center justify-between h-[50px] w-[90%]">
+            <div>
+                <p class="font-bold text-[20px]">Stays in Finland</p>
+            </div>
+            <div>
+                <span>12+</span>
+                <span>Stays</span>
+            </div>
+        </div>
+        <section class="flex flex-wrap items-center justify-center w-[90%]">
+            <div class="flex flex-col w-[100%] ">
+                <img class="rounded-2xl"
+                    src="https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80"
+                    alt="city">
+                <div class=" w-[100%] text-[14px] flex justify-between items-center">
+                    <span class="flex">
+                        <p>Entire apartment</p>
+                        <p>, 2 beds</p>
+                    </span>
+                    <span class="flex"><img class="w-[15px]" src="./src/images/icons/star.svg" alt="star">4.4</span>
+                </div>
+                <p class="font-semibold">Stylist apartment in the center of the city</p>
+            </div>
+        </section>
+    </main>
 </body>
+
 </html>
