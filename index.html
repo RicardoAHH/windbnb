@@ -9,22 +9,22 @@
     <title>PF Windbnd Vanilla</title>
 </head>
 
-<body>
-    <header>
-        <div class="w-screen h-[70px] flex items-center pb-2 pl-6"> <img src="./src/images/icons/logo-f7862584.svg"
-                alt="Logo">
+<body class="bg-[#F2F2F2] w-screen items-center justify-center flex flex-col">
+    <header class="md:flex w-[90%]">
+        <div class=" w-[100%] h-[70px] flex items-center pb-2 pl-1 md:pt-3"> <img
+                src="./src/images/icons/logo-f7862584.svg" alt="Logo">
         </div>
-        <div class="flex items-center justify-center">
+        <div class="flex items-center justify-center md:pt-3">
             <input type="text" placeholder="Add location"
-                class="border-2 border-gray-200 rounded-l-lg w-[35%] h-[50px] pl-5 text-[13px] font-semibold text-gray-500">
+                class="border-2 border-gray-200 rounded-l-xl w-[130px] h-[50px] pl-5 text-[13px] font-semibold text-gray-500">
             <input type="number" placeholder="Add guests"
-                class="border-y-2  text-gray-500 font-semibold text-[13px] border-gray-200 w-[35%] h-[50px] pl-5">
-            <button class="border-2 border-gray-200 rounded-r-lg w-[10%] h-[50px] flex items-center justify-center"
+                class="border-y-2  text-gray-500 font-semibold text-[13px] border-gray-200 w-[120px] h-[50px] pl-5">
+            <button class="border-2 border-gray-200 rounded-r-xl w-[50px] h-[50px] flex items-center justify-center"
                 type="button"><img class="w-[13px]" src="./src/images/icons/searchrojo.svg" alt="search"></button>
         </div>
     </header>
-    <main class="flex flex-col items-center justify-center w-screen">
-        <div class="flex items-center justify-between h-[80px] w-[90%]">
+    <main class="flex flex-col items-center justify-center w-[90%] h-[100%] lg:min-w-[1024px] lg:min-h-[1024px]">
+        <div class="flex items-center justify-between h-[80px] w-[100%]">
             <div>
                 <p class="font-bold text-[25px]">Stays in Finland</p>
             </div>
@@ -33,7 +33,8 @@
                 <span>Stays</span>
             </div>
         </div>
-        <section id="container" class="flex flex-wrap items-center justify-center w-[90%] gap-4">
+        <section id="container" class="flex flex-wrap items-center justify-center  w-[100%] h-[100%] gap-4 md:gap-7">
+
         </section>
     </main>
 </body>
