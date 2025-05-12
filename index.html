@@ -10,32 +10,95 @@
 </head>
 
 <body class="bg-[#F2F2F2] w-screen items-center justify-center flex flex-col">
-    <header class="md:flex w-[90%]">
-        <div class=" w-[100%] h-[70px] flex items-center pb-2 pl-1 md:pt-3"> <img
+    <header class="md:flex w-[90%] items-center justify-center">
+        <div id="icono" class=" w-[100%] h-[70px] flex items-center pb-2 pl-1 md:pt-3"> <img
                 src="./src/images/icons/logo-f7862584.svg" alt="Logo">
         </div>
-        <div class="flex items-center justify-center md:pt-3">
-            <input type="text" placeholder="Add location"
-                class="border-2 border-gray-200 rounded-l-xl w-[130px] h-[50px] pl-5 text-[13px] font-semibold text-gray-500">
-            <input type="number" placeholder="Add guests"
-                class="border-y-2  text-gray-500 font-semibold text-[13px] border-gray-200 w-[120px] h-[50px] pl-5">
-            <button class="border-2 border-gray-200 rounded-r-xl w-[50px] h-[50px] flex items-center justify-center"
-                type="button"><img class="w-[13px]" src="./src/images/icons/searchrojo.svg" alt="search"></button>
+        <div id="header1" class="flex items-center justify-center md:pt-3">
+            <button
+                class="border-2 border-gray-200 rounded-l-xl w-[130px] xl:w-[160px] h-[50px] text-[13px] font-semibold text-gray-400">Add
+                location
+            </button>
+            <button id="guests"
+                class="border-y-2  text-gray-400 font-semibold text-[13px] border-gray-200 w-[120px] xl:w-[150px] h-[50px]">Add
+                guests</button>
+            <button
+                class="border-2 border-gray-200 rounded-r-xl w-[50px] xl:w-[70px] h-[50px] flex items-center justify-center"
+                type="button"><img class="w-[13px] lg:w-[16px]" src="./src/images/icons/searchrojo.svg"
+                    alt="search"></button>
         </div>
-    </header>
-    <main class="flex flex-col items-center justify-center w-[90%] h-[100%] lg:min-w-[1024px]">
-        <div class="flex items-center justify-between h-[80px] w-[100%]">
-            <div>
-                <p class="font-bold text-[25px]">Stays in Finland</p>
+        <div id="header2" class="hidden w-[90%] h-[120px] ">
+            <div id="cerrar" class="border-2 flex p-2 w-[110px] mt-2 ml-auto"> <img class="w-[20px]"
+                    src="./src/images/icons/Close Symbol.svg" alt="close"> CLOSE
             </div>
-            <div class="text-[15px]">
-                <span>12+</span>
-                <span>Stays</span>
+            <div class="flex items-center justify-center md:pt-4 ">
+                <button
+                    class="border-2 border-gray-200 rounded-l-xl w-[40%]  h-[50px] text-[10px] font-semibold text-left pl-5">Location<br>
+                    <p class="text-[13px]">Finland
+                </button>
+                <button id="guests"
+                    class="border-y-2 font-semibold text-[10px] border-gray-200 w-[40%] py-2 h-[50px] text-left pl-5">Guests<br>
+                    <p id="contGuests" class="text-[13px]">5 guests</p>
+                </button>
+                <button class="border-2  border-gray-200 rounded-r-xl w-[20%] h-[50px] flex items-center justify-center"
+                    type="button"><span
+                        class="flex bg-[#eb5757] py-2 px-5 gap-2 rounded-2xl text-white items-center"><img
+                            class="w-[13px] h-[15px]" src="./src/images/icons/search-13-32.png" alt="search">
+                        search</span></button>
             </div>
         </div>
-        <section id="container"
-            class="flex flex-wrap items-center justify-center  w-[100%] h-[100%] lg:h-[screen] gap-4 md:gap-7 lg:grid lg:grid-cols-3 lg:gap-8 lg:justify-items-center">
 
+    </header>
+    <main class="flex flex-col items-center justify-center w-[100%] h-[100%] relative z-0">
+        <div id="menu" class="bg-[#F2F2F2] w-[100%] h-[420px] absolute z-2 top-0 hidden">
+            <section class="pl-48 gap-22 flex">
+                <div id="subLocations" class="w-[30%] h-[300px] border-3">
+
+                </div>
+                <div id="subGuests" class="w-[30%] h-[300px] flex flex-col justify-evenly">
+                    <div>
+                        <h3 class="font-bold text-[15px]">Adults</h3>
+                        <h3 class="font-semibold text-[15px] text-gray-400">Ages 13 or above</h3>
+                        <span class="font-bold text-[15px] flex items-center gap-8">
+                            <button id="adultMinus"
+                                class="border-1 bg-[#cbcbcb] w-[18px] h-[18px] flex items-center justify-center rounded-sm">-</button><span
+                                id="contAdult">0</span><button id="adultPlus"
+                                class="border-1 bg-[#cbcbcb] w-[18px] h-[18px] flex items-center justify-center rounded-sm text-[12px]">
+                                +</button>
+                        </span>
+                    </div>
+                    <div>
+                        <div>
+                            <h3 class="font-bold text-[15px]">Children</h3>
+                            <h3 class="font-semibold text-[15px] text-gray-400">Ages less than 13</h3>
+                            <span class="font-bold text-[15px] flex items-center gap-8">
+                                <button id="childMinus"
+                                    class="border-1 bg-[#cbcbcb] w-[18px] h-[18px] flex items-center justify-center rounded-sm">-</button><span
+                                    id="contChild">0</span><button id="childPlus"
+                                    class="border-1 bg-[#cbcbcb] w-[18px] h-[18px] flex items-center justify-center rounded-sm text-[12px]">
+                                    +</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+        <div id="fondo" class="bg-gray-500 opacity-40 w-[100%] h-[100%] absolute z-1 hidden"></div>
+        <section class="flex flex-col items-center justify-center w-[90%] h-[100%] lg:min-w-[1024px] ">
+            <div class="flex items-center justify-between h-[80px] w-[100%]">
+                <div>
+                    <p class="font-bold text-[25px]">Stays in Finland</p>
+                </div>
+                <div class="text-[15px]">
+                    <span>12+</span>
+                    <span>Stays</span>
+                </div>
+            </div>
+            <section id="container"
+                class="flex flex-wrap items-center justify-center  w-[100%] h-[100%] lg:h-[screen] gap-4 md:gap-7 lg:grid lg:grid-cols-3 lg:gap-8 lg:justify-items-center">
+
+            </section>
         </section>
     </main>
 </body>
