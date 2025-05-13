@@ -15,7 +15,7 @@
                 src="./src/images/icons/logo-f7862584.svg" alt="Logo">
         </div>
         <div class="flex items-center justify-center md:pt-3">
-            <button
+            <button id="location"
                 class="border-2 border-gray-200 rounded-l-xl w-[130px] xl:w-[160px] h-[50px] text-[13px] font-semibold text-gray-400">Add
                 location
             </button>
@@ -40,8 +40,12 @@
                     <input id="inputlocation" type="text" class="text-[13px] w-[100%]">
                 </button>
                 <button id="guests"
-                    class="border-y-2 font-semibold text-[10px] border-gray-200 w-[40%] py-2 h-[50px] text-left pl-5">Guests<br>
-                    <p id="contGuests" class="text-[13px]">5 guests</p>
+                    class="border-y-2 font-semibold text-[10px] border-gray-200 w-[40%] py-2 h-[50px] text-left pl-5 flex flex-col">
+                    <p>Guests</p>
+                    <div class="flex"><input class=" w-[33px] text-center text-[15px]" type="number" name="name"
+                            id="contGuests" readonly>
+                        <p class="text-[13px]">guests</p>
+                    </div>
                 </button>
                 <button class="border-2  border-gray-200 rounded-r-xl w-[20%] h-[50px] flex items-center justify-center"
                     type="button"><span
@@ -51,7 +55,7 @@
             </div>
         </div>
         <div id="menu" class="bg-[#F2F2F2] w-[100%] h-[380px]">
-            <section class="pl-35 gap-30 flex">
+            <section class="pl-[10%] gap-[10%] flex">
                 <div id="subLocations" class="w-[30%] h-[300px] pt-5">
                     <!-- <div class="flex items-center gap-3">
                         <img class="w-[18px] h-[18px]" src="./src/images/icons/location-pointer.png" alt="location">
