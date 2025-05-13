@@ -11,10 +11,10 @@
 
 <body class="bg-[#F2F2F2] w-screen items-center justify-center flex flex-col">
     <header class="md:flex w-[90%] items-center justify-center">
-        <div id="icono" class=" w-[100%] h-[70px] flex items-center pb-2 pl-1 md:pt-3"> <img
+        <div class=" w-[100%] h-[70px] flex items-center pb-2 pl-1 md:pt-3"> <img
                 src="./src/images/icons/logo-f7862584.svg" alt="Logo">
         </div>
-        <div id="header1" class="flex items-center justify-center md:pt-3">
+        <div class="flex items-center justify-center md:pt-3">
             <button
                 class="border-2 border-gray-200 rounded-l-xl w-[130px] xl:w-[160px] h-[50px] text-[13px] font-semibold text-gray-400">Add
                 location
@@ -27,14 +27,17 @@
                 type="button"><img class="w-[13px] lg:w-[16px]" src="./src/images/icons/searchrojo.svg"
                     alt="search"></button>
         </div>
-        <div id="header2" class="hidden w-[90%] h-[120px] ">
+    </header>
+
+    <div id="modal" class="fixed inset-0 bg-gray-600/50 flex flex-col items-baseline modal-entero hidden">
+        <div class="bg-[#F2F2F2] w-[100%] h-[120px] flex flex-col items-center justify-center">
             <div id="cerrar" class="border-2 flex p-2 w-[110px] mt-2 ml-auto"> <img class="w-[20px]"
                     src="./src/images/icons/Close Symbol.svg" alt="close"> CLOSE
             </div>
-            <div class="flex items-center justify-center md:pt-4 ">
+            <div class="flex items-center justify-center md:pt-4 w-[90%]">
                 <button
                     class="border-2 border-gray-200 rounded-l-xl w-[40%]  h-[50px] text-[10px] font-semibold text-left pl-5">Location<br>
-                    <p class="text-[13px]">Finland
+                    <input id="inputlocation" type="text" class="text-[13px] w-[100%]">
                 </button>
                 <button id="guests"
                     class="border-y-2 font-semibold text-[10px] border-gray-200 w-[40%] py-2 h-[50px] text-left pl-5">Guests<br>
@@ -47,13 +50,13 @@
                         search</span></button>
             </div>
         </div>
-
-    </header>
-    <main class="flex flex-col items-center justify-center w-[100%] h-[100%] relative z-0">
-        <div id="menu" class="bg-[#F2F2F2] w-[100%] h-[420px] absolute z-2 top-0 hidden">
-            <section class="pl-48 gap-22 flex">
-                <div id="subLocations" class="w-[30%] h-[300px] border-3">
-
+        <div id="menu" class="bg-[#F2F2F2] w-[100%] h-[380px]">
+            <section class="pl-35 gap-30 flex">
+                <div id="subLocations" class="w-[30%] h-[300px] pt-5">
+                    <!-- <div class="flex items-center gap-3">
+                        <img class="w-[18px] h-[18px]" src="./src/images/icons/location-pointer.png" alt="location">
+                        <p id="sugerencias" class="font-semibold text-[13px]">Hola</p>
+                    </div> -->
                 </div>
                 <div id="subGuests" class="w-[30%] h-[300px] flex flex-col justify-evenly">
                     <div>
@@ -71,19 +74,22 @@
                         <div>
                             <h3 class="font-bold text-[15px]">Children</h3>
                             <h3 class="font-semibold text-[15px] text-gray-400">Ages less than 13</h3>
-                            <span class="font-bold text-[15px] flex items-center gap-8">
+                            <span class="font-bold text-[15px] flex items-center justify-start">
                                 <button id="childMinus"
-                                    class="border-1 bg-[#cbcbcb] w-[18px] h-[18px] flex items-center justify-center rounded-sm">-</button><span
-                                    id="contChild">0</span><button id="childPlus"
+                                    class="border-1 bg-[#cbcbcb] w-[18px] h-[18px] flex items-center justify-center rounded-sm">-</button><input
+                                    id="contChild" type="number" readonly class="w-[70px] pl-3 text-center">
+                                <button id="childPlus"
                                     class="border-1 bg-[#cbcbcb] w-[18px] h-[18px] flex items-center justify-center rounded-sm text-[12px]">
                                     +</button>
                             </span>
                         </div>
                     </div>
                 </div>
-
             </section>
         </div>
+    </div>
+
+    <main class="flex flex-col items-center justify-center w-[100%] h-[100%] ">
         <div id="fondo" class="bg-gray-500 opacity-40 w-[100%] h-[100%] absolute z-1 hidden"></div>
         <section class="flex flex-col items-center justify-center w-[90%] h-[100%] lg:min-w-[1024px] ">
             <div class="flex items-center justify-between h-[80px] w-[100%]">
@@ -97,7 +103,6 @@
             </div>
             <section id="container"
                 class="flex flex-wrap items-center justify-center  w-[100%] h-[100%] lg:h-[screen] gap-4 md:gap-7 lg:grid lg:grid-cols-3 lg:gap-8 lg:justify-items-center">
-
             </section>
         </section>
     </main>
