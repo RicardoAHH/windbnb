@@ -10,33 +10,26 @@ import { mostrarTarjetas } from './utils.js';
 
 mostrarTarjetas();
 
-let fondo = document.querySelector("#fondo");
+
 let menu = document.querySelector("#menu");
-let icon = document.querySelector("#icono");
-let header2 = document.querySelector("#header2");
-let header1 = document.querySelector("#header1");
 let btClose = document.querySelector("#cerrar");
-
-
+let modal = document.querySelector("#modal");
 let btGuests = document.querySelector("#guests");
 
-//Boton de Guests para desplegar menu 
 btGuests.addEventListener("click", function () {
-    fondo.classList.toggle("hidden");
-    menu.classList.toggle("hidden");
-    icon.classList.toggle("hidden");
-    header2.classList.toggle("hidden");
-    header1.classList.toggle("hidden");
-})
-
-//Boton de close para cerrar menu
-btClose.addEventListener("click", function () {
-    menu.classList.toggle("hidden");
-    fondo.classList.toggle("hidden");
-    icon.classList.toggle("hidden");
-    header1.classList.toggle("hidden");
-    header2.classList.toggle("hidden");
+    modal.classList.toggle("hidden");
 });
+
+btClose.addEventListener("click", function () {
+    modal.classList.toggle("hidden");
+});
+
+modal.addEventListener("click", function (evento) {
+    if (evento.target.classList.contains("modal-entero")) {
+        modal.classList.toggle("hidden");
+    }
+});
+
 //Botones de añadir y quitar adultos
 let btadultplus = document.querySelector("#adultPlus");
 let adultcont = document.querySelector("#contAdult");
@@ -52,19 +45,40 @@ btadultminus.addEventListener(("click"), function () {
 //Botones de añadir y quitar niños
 let btchildplus = document.querySelector("#childPlus");
 let childcont = document.querySelector("#contChild");
+
+
+childcont.value = 0;
 btchildplus.addEventListener(("click"), function () {
-    childcont.innerHTML = parseInt(childcont.innerHTML) + 1;
-});
-let btchildminus = document.querySelector("#childMinus");
-btchildminus.addEventListener(("click"), function () {
-    if (parseInt(childcont.innerHTML) > 0) {
-        childcont.innerHTML = parseInt(childcont.innerHTML) - 1;
-    }
+    childcont.value = parseInt(childcont.value) + 1;
+    return childcont.value;
 });
 
-//Desplegar guests en contador
-// let contguests = document.querySelector("#contGuests")
+let btchildminus = document.querySelector("#childMinus");
+btchildminus.addEventListener(("click"), function () {
+    if (parseInt(childcont.value) > 0) {
+        childcont.value = parseInt(childcont.value) - 1;
+        return childcont.value;
+    }
+
+});
+
+let inputLocation = document.querySelector("#inputlocation");
+let sublocations = document.querySelector("#subLocations");
+inputLocation.addEventListener("input", function () {
+    let inputValue = inputLocation.value;
+    console.log(inputValue);
+    sublocations.innerHTML = `  <div class="flex items-center gap-3">
+                        <img class="w-[18px] h-[18px]" src="./src/images/icons/location-pointer.png" alt="location">
+                        <p id="sugerencias" class="font-semibold text-[13px]">${inputValue}</p>
+                    </div>`;
+});
+
+// //Desplegar guests en contador
+// let contguests = document.querySelector("#contGuests");
 // function guests() {
-//     contguests.innerHTML = childcont.textContent + adultcont.textContent + ` guests`
+//     contguests.innerHTML = childcont.value
+//     return contguests.innerHTML;
+
 // }
 // guests();
+
