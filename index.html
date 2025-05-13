@@ -31,8 +31,9 @@
 
     <div id="modal" class="fixed inset-0 bg-gray-600/60 flex flex-col items-baseline modal-entero">
         <div class="bg-[#F2F2F2] w-[100%] h-[120px] flex flex-col items-center justify-center">
-            <div id="cerrar" class="border-2 flex p-2 w-[110px] mt-2 ml-auto"> <img class="w-[20px]"
-                    src="./src/images/icons/Close Symbol.svg" alt="close"> CLOSE
+            <div id="cerrar" class="border-2 max-md:border-0 flex p-2 w-[110px] mt-2 ml-auto"> <img class="w-[20px]"
+                    src="./src/images/icons/Close Symbol.svg" alt="close">
+                <p class="max-md:hidden">CLOSE</p>
             </div>
             <div class="flex items-center justify-center md:pt-4 w-[90%]">
                 <button
@@ -47,7 +48,8 @@
                         <p class="text-[13px]">guests</p>
                     </div>
                 </button>
-                <button class="border-2  border-gray-200 rounded-r-xl w-[20%] h-[50px] flex items-center justify-center"
+                <button id="search"
+                    class="border-2  border-gray-200 rounded-r-xl w-[20%] h-[50px] flex items-center justify-center"
                     type="button"><span
                         class="flex bg-[#eb5757] py-2 px-5 gap-2 rounded-2xl text-white items-center"><img
                             class="w-[13px] h-[15px]" src="./src/images/icons/search-13-32.png" alt="search">
@@ -68,9 +70,9 @@
                         <h3 class="font-semibold text-[15px] text-gray-400">Ages 13 or above</h3>
                         <span class="font-bold text-[15px] flex items-center gap-8">
                             <button id="adultMinus"
-                                class="border-1 bg-[#cbcbcb] w-[18px] h-[18px] flex items-center justify-center rounded-sm">-</button><span
+                                class="border-1 bg-[#cbcbcb] w-[22px] h-[22px] flex items-center justify-center rounded-sm">-</button><span
                                 id="contAdult">0</span><button id="adultPlus"
-                                class="border-1 bg-[#cbcbcb] w-[18px] h-[18px] flex items-center justify-center rounded-sm text-[12px]">
+                                class="border-1 bg-[#cbcbcb] w-[22px] h-[22px] flex items-center justify-center rounded-sm text-[12px]">
                                 +</button>
                         </span>
                     </div>
@@ -80,10 +82,10 @@
                             <h3 class="font-semibold text-[15px] text-gray-400">Ages less than 13</h3>
                             <span class="font-bold text-[15px] flex items-center justify-start">
                                 <button id="childMinus"
-                                    class="border-1 bg-[#cbcbcb] w-[18px] h-[18px] flex items-center justify-center rounded-sm">-</button><input
+                                    class="border-1 bg-[#cbcbcb] w-[22px] h-[22px] flex items-center justify-center rounded-sm">-</button><input
                                     id="contChild" type="number" readonly class="w-[70px] pl-3 text-center">
                                 <button id="childPlus"
-                                    class="border-1 bg-[#cbcbcb] w-[18px] h-[18px] flex items-center justify-center rounded-sm text-[12px]">
+                                    class="border-1 bg-[#cbcbcb] w-[22px] h-[22px] flex items-center justify-center rounded-sm text-[12px]">
                                     +</button>
                             </span>
                         </div>
@@ -91,6 +93,10 @@
                 </div>
             </section>
         </div>
+    </div>
+
+    <div id="modalmobile" class="fixed inset-0 bg-gray-600/60 flex flex-col items-baseline modal-entero hidden">
+
     </div>
 
     <main class="flex flex-col items-center justify-center w-[100%] h-[100%] ">

@@ -5,18 +5,27 @@
  */
 
 
+// import { createElement } from 'react';
 import { mostrarTarjetas } from './utils.js';
-
-
+import { stays } from './stays.js';
+console.log(stays[0].maxGuests)
 mostrarTarjetas();
-
 
 let menu = document.querySelector("#menu");
 let btlocation = document.querySelector("#location");
 let btClose = document.querySelector("#cerrar");
 let modal = document.querySelector("#modal");
 let btGuests = document.querySelector("#guests");
+let btadultplus = document.querySelector("#adultPlus");
+let adultcont = document.querySelector("#contAdult");
+let btadultminus = document.querySelector("#adultMinus");
+let btchildplus = document.querySelector("#childPlus");
+let childcont = document.querySelector("#contChild");
+let contguests = document.querySelector("#contGuests");
+contguests.value = 0;
+childcont.value = 0;
 
+//botones para despelgar modales y cerrarlos
 btGuests.addEventListener("click", function () {
     modal.classList.toggle("hidden");
 });
@@ -35,50 +44,50 @@ modal.addEventListener("click", function (evento) {
     }
 });
 
-//Botones de añadir y quitar adultos
-let btadultplus = document.querySelector("#adultPlus");
-let adultcont = document.querySelector("#contAdult");
+//Botones de añadir y quitar huespedes adultos
+
 btadultplus.addEventListener(("click"), function () {
     adultcont.innerHTML = parseInt(adultcont.innerHTML) + 1;
-    contguests.value = adultcont.innerHTML
+    contguests.value = parseInt(contguests.value) + 1;
+    localStorage.setItem("suma", contguests.value)
 })
-let btadultminus = document.querySelector("#adultMinus");
+
 btadultminus.addEventListener(("click"), function () {
     if (parseInt(adultcont.innerHTML) > 0) {
         adultcont.innerHTML = parseInt(adultcont.innerHTML) - 1;
+        contguests.value = parseInt(contguests.value) - 1;
+        localStorage.setItem("suma", contguests.value)
     }
-    contguests.value = adultcont.innerHTML
 })
-//Botones de añadir y quitar niños
-let btchildplus = document.querySelector("#childPlus");
-let childcont = document.querySelector("#contChild");
-let contguests = document.querySelector("#contGuests");
-
-
-childcont.value = 0;
+//Botones de añadir y quitar huespedes niños
 btchildplus.addEventListener(("click"), function () {
-    childcont.value = parseInt(childcont.value) + 1;
-    contguests.value = childcont.value
-});
 
+    childcont.value = parseInt(childcont.value) + 1;
+    contguests.value = parseInt(contguests.value) + 1;
+    localStorage.setItem("suma", contguests.value)
+});
 
 
 let btchildminus = document.querySelector("#childMinus");
 btchildminus.addEventListener(("click"), function () {
     if (parseInt(childcont.value) > 0) {
         childcont.value = parseInt(childcont.value) - 1;
+        contguests.value = parseInt(contguests.value) - 1;
+        localStorage.setItem("suma", contguests.value)
     }
-    contguests.value = childcont.value
 });
 
-console.log(contguests.value);
+let btsearch = document.querySelector("#search")
 
+btsearch.addEventListener(("click"), function () {
+    let huespedes = localStorage.getItem("suma")
+    stays.forEach((stay) => {
+        if (stay.maxGuests >= huespedes) {
+            mostrarTarjetas()
+        }
+    })
+})
 
-
-// childcont.addEventListener("input", function () {
-//     let childcontValue = childcont.value;
-//     console.log(childcontValue);
-// });
 
 let inputLocation = document.querySelector("#inputlocation");
 let sublocations = document.querySelector("#subLocations");
@@ -91,12 +100,5 @@ inputLocation.addEventListener("input", function () {
 });
 
 
-// //Desplegar guests en contador
 
-// function guests() {
-//     contguests.innerHTML = childcont.value
-//     return contguests.innerHTML;
-
-// }
-// guests();
 
