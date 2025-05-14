@@ -8,9 +8,9 @@ import { stays } from './stays.js';
 let contenedor = document.querySelector("#container");
 
 //Funcion para mostrar las tarjetas en la pantalla 
-export function mostrarTarjetas() {
+export function mostrarTarjetas(array) {
     contenedor.innerHTML = "";
-    stays.forEach((stay) => {
+    array.forEach((stay) => {
         if (stay.beds !== null) {
             contenedor.innerHTML += `<div class="flex flex-col w-[330px] lg:w-[100%] lg:h-[300px] xl:h-[380px]">
                 <div class="w-[100%] h-[228px] lg:h-[100%] items-center flex object-cover ">

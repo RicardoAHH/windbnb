@@ -8,8 +8,7 @@
 // import { createElement } from 'react';
 import { mostrarTarjetas } from './utils.js';
 import { stays } from './stays.js';
-console.log(stays[0].maxGuests)
-mostrarTarjetas();
+mostrarTarjetas(stays);
 
 let menu = document.querySelector("#menu");
 let btlocation = document.querySelector("#location");
@@ -81,11 +80,8 @@ let btsearch = document.querySelector("#search")
 
 btsearch.addEventListener(("click"), function () {
     let huespedes = localStorage.getItem("suma")
-    stays.forEach((stay) => {
-        if (stay.maxGuests >= huespedes) {
-            mostrarTarjetas()
-        }
-    })
+    let filtrado = stays.filter((stay) => stay.maxGuests >= huespedes)
+    mostrarTarjetas(filtrado)
 })
 
 
