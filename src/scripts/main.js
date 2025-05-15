@@ -22,9 +22,10 @@ let btchildplus = document.querySelector("#childPlus");
 let childcont = document.querySelector("#contChild");
 let btchildminus = document.querySelector("#childMinus");
 let contguests = document.querySelector("#contGuests");
-let btsearch = document.querySelector("#search")
+let btsearch = document.querySelector(".search")
 let inputLocation = document.querySelector("#inputlocation");
 let sublocations = document.querySelector("#subLocations");
+let staysin = document.querySelector("#staysin")
 contguests.value = 0;
 childcont.value = 0;
 localStorage.setItem("suma", 0)
@@ -89,16 +90,20 @@ btsearch.addEventListener(("click"), function () {
     if (huespedes != 0 && ciudad != "") {
         let filtrado = stays.filter((stay) => stay.maxGuests >= huespedes && stay.city == ciudad || stay.city == inputLocation.value)
         mostrarTarjetas(filtrado)
+        staysin.innerText = `Stays in ${ciudad}, Finland`;
         modal.classList.toggle("hidden");
     } else if (huespedes == 0 && ciudad != "") {
         let filtrado = stays.filter((stay) => stay.city == ciudad || stay.city == inputLocation.value)
         mostrarTarjetas(filtrado)
+        staysin.innerText = `Stays in ${ciudad}, Finland`;
         modal.classList.toggle("hidden");
     } else if (huespedes != 0 && ciudad == "") {
         let filtrado = stays.filter((stay) => stay.maxGuests >= huespedes)
         mostrarTarjetas(filtrado)
+        staysin.innerText = `Stays in Finland`;
         modal.classList.toggle("hidden");
     } else if (huespedes == 0 && ciudad == "") {
+        staysin.innerText = `Stays in Finland`;
         modal.classList.toggle("hidden");
         mostrarTarjetas(stays)
     }
