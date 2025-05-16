@@ -6,9 +6,13 @@
 
 
 // import { createElement } from 'react';
-import { mostrarTarjetas } from './utils.js';
+import { mostrarTarjetas, search, traerskeleton } from './utils.js';
 import { stays } from './stays.js';
-mostrarTarjetas(stays);
+traerskeleton();
+setTimeout(() => {
+    mostrarTarjetas(stays);
+}, 2500);
+
 
 
 let btlocation = document.querySelector("#location");
@@ -25,7 +29,7 @@ let contguests = document.querySelector("#contGuests");
 let btsearch = document.querySelector(".search")
 let inputLocation = document.querySelector("#inputlocation");
 let sublocations = document.querySelector("#subLocations");
-let staysin = document.querySelector("#staysin")
+let btsearch2 = document.querySelector(".search2")
 contguests.value = 0;
 childcont.value = 0;
 localStorage.setItem("suma", 0)
@@ -82,32 +86,11 @@ btchildminus.addEventListener(("click"), function () {
     }
 });
 
-//Boton para buscar filtrando 
-btsearch.addEventListener(("click"), function () {
-    let huespedes = localStorage.getItem("suma")
-    let ciudad = localStorage.getItem("city")
+//Botones para buscar filtrando 
+btsearch.addEventListener(("click"), search)
+btsearch2.addEventListener(("click"), search)
 
-    if (huespedes != 0 && ciudad != "") {
-        let filtrado = stays.filter((stay) => stay.maxGuests >= huespedes && stay.city == ciudad || stay.city == inputLocation.value)
-        mostrarTarjetas(filtrado)
-        staysin.innerText = `Stays in ${ciudad}, Finland`;
-        modal.classList.toggle("hidden");
-    } else if (huespedes == 0 && ciudad != "") {
-        let filtrado = stays.filter((stay) => stay.city == ciudad || stay.city == inputLocation.value)
-        mostrarTarjetas(filtrado)
-        staysin.innerText = `Stays in ${ciudad}, Finland`;
-        modal.classList.toggle("hidden");
-    } else if (huespedes != 0 && ciudad == "") {
-        let filtrado = stays.filter((stay) => stay.maxGuests >= huespedes)
-        mostrarTarjetas(filtrado)
-        staysin.innerText = `Stays in Finland`;
-        modal.classList.toggle("hidden");
-    } else if (huespedes == 0 && ciudad == "") {
-        staysin.innerText = `Stays in Finland`;
-        modal.classList.toggle("hidden");
-        mostrarTarjetas(stays)
-    }
-})
+
 
 //Boton para las locaciones 
 
